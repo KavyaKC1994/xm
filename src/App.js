@@ -9,13 +9,35 @@ const XModal = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you can add your form submission logic
+
+    // Email validation
+    if (!email.includes("@")) {
+      alert("Please include @ in the email.");
+      return;
+    }
+
+    // Phone number validation
+    if (phone.length !== 10) {
+      alert("Invalid phone number. Please enter a 10-digit phone number.");
+      return;
+    }
+
+    // Date of birth validation
+    const dobDate = new Date(dob);
+    if (dobDate > new Date()) {
+      alert("Please enter a valid date of birth.");
+      return;
+    }
+
+    // Form submission logic
     console.log("Form submitted:", { username, email, phone, dob });
+
     // Clearing form fields
     setUsername("");
     setEmail("");
     setPhone("");
     setDob("");
+
     // Closing the modal
     setIsOpen(false);
   };
@@ -64,7 +86,9 @@ const XModal = () => {
                 onChange={(e) => setDob(e.target.value)}
                 required
               />
-              <button type="submit">Submit</button>
+              <button type="submit" className="submit-button">
+                Submit
+              </button>
             </form>
           </div>
         </div>
