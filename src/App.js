@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./App.css";
 
 const XModal = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,9 +38,6 @@ const XModal = () => {
     setEmail("");
     setPhone("");
     setDob("");
-
-    // Closing the modal
-    setIsOpen(false);
   };
 
   const handleCloseModal = () => {
